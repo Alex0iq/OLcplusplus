@@ -2,28 +2,31 @@
 #include <vector>
 #include <string>
 using namespace std;
+
+struct person {
+	string name;
+	int age;
+};
+
 int main()
 {
 	int mage = -1;
 	int n;
 	cin >> n;
-	vector<string> names(n);
-	vector<int> ages(n);
+	vector<person> a(n);
 	for (int i = 0; i < n; i++) {
-		string name;
-		int age;
-		cin >> name >> age;
-		names[i] = name;
-		ages[i] = age;
+		person one;
+		cin >> one.name >> one.age;
+		a[i] = one;
 	}
-	for (int i = 0; i < ages.size(); i++) {
-		if (ages[i] > mage) {
-			mage = ages[i];
+	for (int i = 0; i < n; i++) {
+		if (a[i].age > mage) {
+			mage = a[i].age;
 		}
 	}
 	for (int i = 0; i < n; i++) {
-		if (ages[i] == mage) {
-			cout << names[i] << " ";
+		if (a[i].age == mage) {
+			cout << a[i].name << " ";
 		}
 	}
 }
